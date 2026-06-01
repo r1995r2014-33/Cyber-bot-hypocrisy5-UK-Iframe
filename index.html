@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cyber Bot - Hypocrisy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body{ margin:0; font-family: Arial, sans-serif; background:#f7f7f7; }
+    #cyberbotH{ width:100%; height:100vh; background:#fff; }
+  </style>
+</head>
+
+<body>
+  <div id="cyberbotH"></div>
+  <div id="debug">loading…</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const pid = params.get('participant_id');
+    window.participant_id = pid ? String(pid) : '';
+    document.getElementById('debug').textContent =
+      'participant_id from URL = ' + (window.participant_id || '(empty)');
+  </script>
+
+  <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '6a1dfc851bd221f955f412f7' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          },
+          render: {
+            mode: 'embedded',
+            target: document.getElementById('cyberbotH')
+          }
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+</body>
+</html>
