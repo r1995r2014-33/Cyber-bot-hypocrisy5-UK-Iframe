@@ -12,14 +12,12 @@
 
 <body>
   <div id="cyberbotH"></div>
-  <div id="debug">loading…</div>
+
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const pid = params.get('participant_id');
     window.participant_id = pid ? String(pid) : '';
-    document.getElementById('debug').textContent =
-      'participant_id from URL = ' + (window.participant_id || '(empty)');
   </script>
 
   <script type="text/javascript">
